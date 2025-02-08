@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import Upload from "./Pages/upload";
+import Reports from "./Pages/Reports";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import { Toaster } from "react-hot-toast";
+import './App.css';
+// import { removeAuthToken } from './auth';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="min-h-screen bg-gray-100 text-gray-900">
+        <Navigation />
+        <div className="container mx-auto p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+        <Toaster position="top-right" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 
-export default App
+function Navigation() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // removeAuthToken();
+    navigate('/login');
+  };
+
+  return (
+    <nav className="bg-blue-600 p-4 text-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-xl font-semibold">CreditSync</Link>
+        <div>
+          <Link to="/upload" className="px-4">Upload</Link>
+          <Link to="/reports" className="px-4">Reports</Link>
+          <Link to="/login" className="px-4">Login</Link>
+          <button onClick={handleLogout} className="px-4">Logout</button>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default App;
