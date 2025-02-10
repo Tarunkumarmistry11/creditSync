@@ -1,4 +1,3 @@
-// src/Pages/Login.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -12,7 +11,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      // Storing the token directly in localStorage
       localStorage.setItem('authToken', data.token);
       navigate('/upload');
     } catch (error) {

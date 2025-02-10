@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';  // Import PropTypes
+import PropTypes from 'prop-types'; 
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, TimeScale } from 'chart.js';
 import 'chartjs-adapter-date-fns';
@@ -7,7 +7,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 const CreditScoreLineChart = ({ scores = [] }) => {
   const data = {
-    labels: scores.map((s) => s.date), // Ensure `date` is in correct format
+    labels: scores.map((s) => s.date), 
     datasets: [
       {
         label: 'Credit Score',
@@ -27,12 +27,11 @@ const CreditScoreLineChart = ({ scores = [] }) => {
   );
 };
 
-// PropTypes validation
 CreditScoreLineChart.propTypes = {
   scores: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.string.isRequired, // Assuming `date` is a string
-      score: PropTypes.number.isRequired, // Assuming `score` is a number
+      date: PropTypes.string.isRequired, 
+      score: PropTypes.number.isRequired, 
     })
   ),
 };

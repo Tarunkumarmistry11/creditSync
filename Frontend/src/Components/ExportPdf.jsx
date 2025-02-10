@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';  // Import PropTypes
+import PropTypes from 'prop-types';  
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -22,10 +22,9 @@ const ExportPDF = ({ reportRef }) => {
   );
 };
 
-// PropTypes validation
 ExportPDF.propTypes = {
   reportRef: PropTypes.shape({
-    current: PropTypes.instanceOf(Element),  // Ensures reportRef.current is an Element (or null)
+    current: PropTypes.instanceOf(Element),  
   }),
 };
 

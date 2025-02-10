@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';  // Import PropTypes
+import PropTypes from 'prop-types';  
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
@@ -32,7 +32,7 @@ const ReportChart = ({ reportData = {} }) => {
         beginAtZero: true,
         ticks: {
           callback: function (value) {
-            return '₹' + value.toLocaleString(); // Format numbers with ₹ symbol
+            return '₹' + value.toLocaleString(); 
           },
         },
       },
@@ -47,7 +47,6 @@ const ReportChart = ({ reportData = {} }) => {
   );
 };
 
-// PropTypes validation
 ReportChart.propTypes = {
   reportData: PropTypes.shape({
     activeAccounts: PropTypes.number,

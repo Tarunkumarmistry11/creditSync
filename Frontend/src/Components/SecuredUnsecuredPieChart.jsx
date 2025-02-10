@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';  // Import PropTypes
+import PropTypes from 'prop-types'; 
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
@@ -23,10 +23,9 @@ const SecuredUnsecuredPieChart = ({ secured, unsecured }) => {
   );
 };
 
-// PropTypes validation
 SecuredUnsecuredPieChart.propTypes = {
-  secured: PropTypes.number.isRequired,   // Ensures `secured` is a number and required
-  unsecured: PropTypes.number.isRequired, // Ensures `unsecured` is a number and required
+  secured: PropTypes.number.isRequired,   
+  unsecured: PropTypes.number.isRequired, 
 };
 
 export default SecuredUnsecuredPieChart;

@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UploadForm from '../Components/uploadForm'; // Import UploadForm
+import UploadForm from '../Components/uploadForm'; 
 
 const Upload = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Retrieve the token from localStorage
     const token = localStorage.getItem('authToken');
     
     if (!token) {
@@ -16,9 +15,8 @@ const Upload = () => {
   }, [navigate]);
 
   const handleUploadSuccess = () => {
-    // Optional: Refresh reports or display a success message
     alert('Upload successful! Refreshing reports...');
-    navigate('/reports'); // Redirect to reports after successful upload
+    navigate('/reports'); 
   };
 
   return (

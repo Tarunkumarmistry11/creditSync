@@ -11,26 +11,23 @@ const UploadForm = ({ onUploadSuccess }) => {
   const handleUpload = async () => {
     if (!file) return alert("Please select a file");
     const formData = new FormData();
-    formData.append('xmlFile', file);
-
+    formData.append('file', file); 
     try {
-      // Retrieve the token from localStorage
       const token = localStorage.getItem('authToken');
       if (!token) {
         return alert("You are not authenticated. Please login first.");
       }
 
-      // Upload the file with the token in the header
       await axios.post('http://localhost:5000/api/upload/upload', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data', // Important for file uploads
+          'Content-Type': 'multipart/form-data', 
         },
       });
 
       setUploadStatus("File uploaded successfully!");
       if (onUploadSuccess) {
-        onUploadSuccess(); // Notify parent component
+        onUploadSuccess(); 
       }
     } catch (error) {
       setUploadStatus("Upload failed!");
@@ -52,9 +49,8 @@ const UploadForm = ({ onUploadSuccess }) => {
   );
 };
 
-// PropTypes validation
 UploadForm.propTypes = {
-  onUploadSuccess: PropTypes.func.isRequired,  // Ensures `onUploadSuccess` is a function and required
+  onUploadSuccess: PropTypes.func.isRequired,  
 };
 
 export default UploadForm;

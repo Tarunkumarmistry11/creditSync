@@ -5,7 +5,11 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import { Toaster } from "react-hot-toast";
 import './App.css';
-// import { removeAuthToken } from './auth';
+
+const removeAuthToken = () => {
+    localStorage.removeItem('authToken');
+};
+
 
 function App() {
   return (
@@ -30,7 +34,7 @@ function Navigation() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // removeAuthToken();
+    removeAuthToken();
     navigate('/login');
   };
 

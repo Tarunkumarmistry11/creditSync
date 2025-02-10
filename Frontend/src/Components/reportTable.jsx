@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';  // Import PropTypes
+import PropTypes from 'prop-types';  
 import { useMemo } from 'react';
 import { useTable, useSortBy } from '@tanstack/react-table';
 
@@ -24,7 +24,7 @@ const ReportTable = ({ data }) => {
               <th 
                 {...column.getHeaderProps(column.getSortByToggleProps())} 
                 className="px-4 py-2 border border-gray-700" 
-                key={column.id}  // Added key here
+                key={column.id}  
               >
                 {column.render('Header')}
               </th>
@@ -50,9 +50,8 @@ const ReportTable = ({ data }) => {
   );
 };
 
-// PropTypes validation
 ReportTable.propTypes = {
-  data: PropTypes.array.isRequired,  // Ensures `data` is an array and is required
+  data: PropTypes.array.isRequired,  
 };
 
 export default ReportTable;
